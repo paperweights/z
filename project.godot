@@ -8,9 +8,26 @@
 
 config_version=4
 
+_global_script_classes=[ {
+"base": "Menu",
+"class": "MainMenu",
+"language": "GDScript",
+"path": "res://menu/main_menu.gd"
+}, {
+"base": "CenterContainer",
+"class": "Menu",
+"language": "GDScript",
+"path": "res://menu/menu.gd"
+} ]
+_global_script_class_icons={
+"MainMenu": "",
+"Menu": ""
+}
+
 [application]
 
 config/name="z"
+run/main_scene="res://menu/menu.tscn"
 config/icon="res://icon.png"
 
 [physics]
