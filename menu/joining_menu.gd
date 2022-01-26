@@ -19,6 +19,7 @@ func _on_connected_successfully():
 
 
 func _on_connected_failed():
+	visible = true
 	_status.text = "Failed to connect to server!"
 	$PanelContainer/VBoxContainer/Cancel.visible = false
 	$PanelContainer/VBoxContainer/Back.visible = true

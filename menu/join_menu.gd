@@ -43,7 +43,11 @@ func _on_join_pressed():
 	var section = _servers.get_item_text(_selected_server)
 	var address = _config.get_value(section, ServerInfoMenu.ADDRESS_KEY)
 	var port = _config.get_value(section, ServerInfoMenu.PORT_KEY)
-	GameState.join_game(address, port)
+	var login_data = LoginData.new()
+	login_data.server_password = _config.get_value(section, ServerInfoMenu.SERVER_PASSWORD_KEY)
+	login_data.username = _config.get_value(section, ServerInfoMenu.USERNAME_KEY)
+	login_data.password = _config.get_value(section, ServerInfoMenu.PASSWORD_KEY)
+	GameState.join_game(address, port, login_data)
 	_switch_menu(_joining_menu)
 	return
 
