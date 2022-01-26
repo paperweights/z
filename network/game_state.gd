@@ -15,8 +15,6 @@ var peer: NetworkedMultiplayerPeer
 func _ready():
 	get_tree().connect("network_peer_connected", self, "_player_connected")
 	get_tree().connect("network_peer_disconnected", self, "_player_disconnected")
-	get_tree().connect("connected_to_server", self, "_connected_ok")
-	get_tree().connect("connection_failed", self, "_connected_fail")
 	get_tree().connect("server_disconnected", self, "_server_disconnected")
 	return
 
@@ -30,6 +28,8 @@ func host_game(port: int, max_clients: int):
 
 
 func join_game(address: String, port: int):
+	get_tree().connect("connected_to_server", self, "_connected_ok")
+	get_tree().connect("connection_failed", self, "_connected_fail")
 	peer = NetworkedMultiplayerENet.new()
 	peer.create_client(address, port)
 	get_tree().set_network_peer(peer)
