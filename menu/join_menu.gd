@@ -34,7 +34,7 @@ func _on_Join_pressed():
 
 
 func _on_Back_pressed():
-	switch_menu(_main_menu)
+	_switch_menu(_main_menu)
 	return
 
 

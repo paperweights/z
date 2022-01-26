@@ -10,6 +10,11 @@ config_version=4
 
 _global_script_classes=[ {
 "base": "Menu",
+"class": "HostMenu",
+"language": "GDScript",
+"path": "res://menu/host_menu.gd"
+}, {
+"base": "Menu",
 "class": "JoinMenu",
 "language": "GDScript",
 "path": "res://menu/join_menu.gd"
@@ -35,6 +40,7 @@ _global_script_classes=[ {
 "path": "res://menu/line_edits/valid_line.gd"
 } ]
 _global_script_class_icons={
+"HostMenu": "",
 "JoinMenu": "",
 "MainMenu": "",
 "Menu": "",

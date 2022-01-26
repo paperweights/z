@@ -11,15 +11,15 @@ onready var _options_menu: CenterContainer = get_node(_options_menu_node)
 
 
 func _on_Join_pressed():
-	switch_menu(_join_menu)
+	_switch_menu(_join_menu)
 
 
 func _on_Host_pressed():
-	switch_menu(_host_menu)
+	_switch_menu(_host_menu)
 
 
 func _on_Options_pressed():
-	switch_menu(_options_menu)
+	_switch_menu(_options_menu)
 
 
 func _on_Quit_pressed():
