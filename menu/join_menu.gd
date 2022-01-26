@@ -18,6 +18,7 @@ onready var _line_edits = [
 
 
 func _ready():
+	$VBoxContainer/Servers.add_item("bob")
 	# set initial values
 	_line_edits[0].text = _address
 	_line_edits[1].text = str(_port)

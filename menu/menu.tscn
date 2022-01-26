@@ -14,6 +14,7 @@ __meta__ = {
 }
 
 [node name="MainMenu" type="CenterContainer" parent="."]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 1 )
@@ -66,7 +67,6 @@ margin_bottom = 110.0
 text = "Quit"
 
 [node name="JoinMenu" type="CenterContainer" parent="."]
-visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 2 )
@@ -76,54 +76,129 @@ __meta__ = {
 _main_menu_node = NodePath("../MainMenu")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="JoinMenu"]
-margin_left = 427.0
-margin_top = 199.0
-margin_right = 597.0
-margin_bottom = 401.0
+margin_left = 491.0
+margin_top = 238.0
+margin_right = 533.0
+margin_bottom = 361.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Title" type="Label" parent="JoinMenu/VBoxContainer"]
-margin_right = 170.0
+margin_right = 42.0
 margin_bottom = 14.0
 text = "Join"
 align = 1
 
-[node name="IpAddress" type="HBoxContainer" parent="JoinMenu/VBoxContainer"]
+[node name="Servers" type="ItemList" parent="JoinMenu/VBoxContainer"]
+margin_top = 18.0
+margin_right = 42.0
+margin_bottom = 27.0
+auto_height = true
+
+[node name="Join" type="Button" parent="JoinMenu/VBoxContainer"]
+margin_top = 31.0
+margin_right = 42.0
+margin_bottom = 51.0
+text = "Join"
+
+[node name="Add" type="Button" parent="JoinMenu/VBoxContainer"]
+margin_top = 55.0
+margin_right = 42.0
+margin_bottom = 75.0
+text = "Add"
+
+[node name="Edit" type="Button" parent="JoinMenu/VBoxContainer"]
+margin_top = 79.0
+margin_right = 42.0
+margin_bottom = 99.0
+text = "Edit"
+
+[node name="Back" type="Button" parent="JoinMenu/VBoxContainer"]
+margin_top = 103.0
+margin_right = 42.0
+margin_bottom = 123.0
+text = "Back"
+
+[node name="AddServerMenu" type="CenterContainer" parent="."]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+_main_menu_node = NodePath("../MainMenu")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="AddServerMenu"]
+margin_left = 427.0
+margin_top = 185.0
+margin_right = 597.0
+margin_bottom = 415.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Title" type="Label" parent="AddServerMenu/VBoxContainer"]
+margin_right = 170.0
+margin_bottom = 14.0
+text = "Add Server"
+align = 1
+
+[node name="Name" type="HBoxContainer" parent="AddServerMenu/VBoxContainer"]
 margin_top = 18.0
 margin_right = 170.0
 margin_bottom = 42.0
 alignment = 2
 
-[node name="Label" type="Label" parent="JoinMenu/VBoxContainer/IpAddress"]
+[node name="Label" type="Label" parent="AddServerMenu/VBoxContainer/Name"]
+margin_left = 22.0
+margin_top = 5.0
+margin_right = 108.0
+margin_bottom = 19.0
+text = "Server Name:"
+
+[node name="LineEdit" type="LineEdit" parent="AddServerMenu/VBoxContainer/Name"]
+margin_left = 112.0
+margin_right = 170.0
+margin_bottom = 24.0
+max_length = 32
+expand_to_text_length = true
+
+[node name="IpAddress" type="HBoxContainer" parent="AddServerMenu/VBoxContainer"]
+margin_top = 46.0
+margin_right = 170.0
+margin_bottom = 70.0
+alignment = 2
+
+[node name="Label" type="Label" parent="AddServerMenu/VBoxContainer/IpAddress"]
 margin_left = 35.0
 margin_top = 5.0
 margin_right = 108.0
 margin_bottom = 19.0
 text = "IP Address:"
 
-[node name="LineEdit" type="LineEdit" parent="JoinMenu/VBoxContainer/IpAddress"]
+[node name="LineEdit" type="LineEdit" parent="AddServerMenu/VBoxContainer/IpAddress"]
 margin_left = 112.0
 margin_right = 170.0
 margin_bottom = 24.0
 expand_to_text_length = true
 script = ExtResource( 3 )
 
-[node name="Port" type="HBoxContainer" parent="JoinMenu/VBoxContainer"]
-margin_top = 46.0
+[node name="Port" type="HBoxContainer" parent="AddServerMenu/VBoxContainer"]
+margin_top = 74.0
 margin_right = 170.0
-margin_bottom = 70.0
+margin_bottom = 98.0
 alignment = 2
 
-[node name="Label" type="Label" parent="JoinMenu/VBoxContainer/Port"]
+[node name="Label" type="Label" parent="AddServerMenu/VBoxContainer/Port"]
 margin_left = 78.0
 margin_top = 5.0
 margin_right = 108.0
 margin_bottom = 19.0
 text = "Port:"
 
-[node name="LineEdit" type="LineEdit" parent="JoinMenu/VBoxContainer/Port"]
+[node name="LineEdit" type="LineEdit" parent="AddServerMenu/VBoxContainer/Port"]
 margin_left = 112.0
 margin_right = 170.0
 margin_bottom = 24.0
@@ -131,19 +206,19 @@ max_length = 5
 expand_to_text_length = true
 script = ExtResource( 4 )
 
-[node name="ServerPassword" type="HBoxContainer" parent="JoinMenu/VBoxContainer"]
-margin_top = 74.0
+[node name="ServerPassword" type="HBoxContainer" parent="AddServerMenu/VBoxContainer"]
+margin_top = 102.0
 margin_right = 170.0
-margin_bottom = 98.0
+margin_bottom = 126.0
 alignment = 2
 
-[node name="Label" type="Label" parent="JoinMenu/VBoxContainer/ServerPassword"]
+[node name="Label" type="Label" parent="AddServerMenu/VBoxContainer/ServerPassword"]
 margin_top = 5.0
 margin_right = 108.0
 margin_bottom = 19.0
 text = "Server Password:"
 
-[node name="LineEdit" type="LineEdit" parent="JoinMenu/VBoxContainer/ServerPassword"]
+[node name="LineEdit" type="LineEdit" parent="AddServerMenu/VBoxContainer/ServerPassword"]
 margin_left = 112.0
 margin_right = 170.0
 margin_bottom = 24.0
@@ -151,40 +226,40 @@ max_length = 32
 secret = true
 expand_to_text_length = true
 
-[node name="Username" type="HBoxContainer" parent="JoinMenu/VBoxContainer"]
-margin_top = 102.0
+[node name="Username" type="HBoxContainer" parent="AddServerMenu/VBoxContainer"]
+margin_top = 130.0
 margin_right = 170.0
-margin_bottom = 126.0
+margin_bottom = 154.0
 alignment = 2
 
-[node name="Label" type="Label" parent="JoinMenu/VBoxContainer/Username"]
+[node name="Label" type="Label" parent="AddServerMenu/VBoxContainer/Username"]
 margin_left = 38.0
 margin_top = 5.0
 margin_right = 108.0
 margin_bottom = 19.0
 text = "Username:"
 
-[node name="LineEdit" type="LineEdit" parent="JoinMenu/VBoxContainer/Username"]
+[node name="LineEdit" type="LineEdit" parent="AddServerMenu/VBoxContainer/Username"]
 margin_left = 112.0
 margin_right = 170.0
 margin_bottom = 24.0
 max_length = 32
 expand_to_text_length = true
 
-[node name="Password" type="HBoxContainer" parent="JoinMenu/VBoxContainer"]
-margin_top = 130.0
+[node name="Password" type="HBoxContainer" parent="AddServerMenu/VBoxContainer"]
+margin_top = 158.0
 margin_right = 170.0
-margin_bottom = 154.0
+margin_bottom = 182.0
 alignment = 2
 
-[node name="Label" type="Label" parent="JoinMenu/VBoxContainer/Password"]
+[node name="Label" type="Label" parent="AddServerMenu/VBoxContainer/Password"]
 margin_left = 48.0
 margin_top = 5.0
 margin_right = 108.0
 margin_bottom = 19.0
 text = "Password"
 
-[node name="LineEdit" type="LineEdit" parent="JoinMenu/VBoxContainer/Password"]
+[node name="LineEdit" type="LineEdit" parent="AddServerMenu/VBoxContainer/Password"]
 margin_left = 112.0
 margin_right = 170.0
 margin_bottom = 24.0
@@ -192,16 +267,16 @@ max_length = 32
 secret = true
 expand_to_text_length = true
 
-[node name="Join" type="Button" parent="JoinMenu/VBoxContainer"]
-margin_top = 158.0
+[node name="Done" type="Button" parent="AddServerMenu/VBoxContainer"]
+margin_top = 186.0
 margin_right = 170.0
-margin_bottom = 178.0
-text = "Join"
+margin_bottom = 206.0
+text = "Done"
 
-[node name="Back" type="Button" parent="JoinMenu/VBoxContainer"]
-margin_top = 182.0
+[node name="Back" type="Button" parent="AddServerMenu/VBoxContainer"]
+margin_top = 210.0
 margin_right = 170.0
-margin_bottom = 202.0
+margin_bottom = 230.0
 text = "Back"
 
 [node name="HostMenu" type="CenterContainer" parent="."]
@@ -314,10 +389,11 @@ text = "Back"
 [connection signal="pressed" from="MainMenu/VBoxContainer/Host" to="MainMenu" method="_on_Host_pressed"]
 [connection signal="pressed" from="MainMenu/VBoxContainer/Options" to="MainMenu" method="_on_Options_pressed"]
 [connection signal="pressed" from="MainMenu/VBoxContainer/Quit" to="MainMenu" method="_on_Quit_pressed"]
-[connection signal="changed" from="JoinMenu/VBoxContainer/IpAddress/LineEdit" to="JoinMenu" method="_on_address_changed"]
-[connection signal="changed" from="JoinMenu/VBoxContainer/Port/LineEdit" to="JoinMenu" method="_on_port_changed"]
 [connection signal="pressed" from="JoinMenu/VBoxContainer/Join" to="JoinMenu" method="_on_Join_pressed"]
 [connection signal="pressed" from="JoinMenu/VBoxContainer/Back" to="JoinMenu" method="_on_Back_pressed"]
+[connection signal="changed" from="AddServerMenu/VBoxContainer/IpAddress/LineEdit" to="AddServerMenu" method="_on_address_changed"]
+[connection signal="changed" from="AddServerMenu/VBoxContainer/Port/LineEdit" to="AddServerMenu" method="_on_port_changed"]
+[connection signal="pressed" from="AddServerMenu/VBoxContainer/Back" to="AddServerMenu" method="_on_Back_pressed"]
 [connection signal="changed" from="HostMenu/VBoxContainer/Port/LineEdit" to="HostMenu" method="_on_LineEdit_changed"]
 [connection signal="pressed" from="HostMenu/VBoxContainer/Host" to="HostMenu" method="_on_host_pressed"]
 [connection signal="pressed" from="HostMenu/VBoxContainer/Back" to="HostMenu" method="_on_Back_pressed"]

@@ -39,3 +39,4 @@ func _on_LineEdit_changed(new_text: String):
 
 func _on_Back_pressed():
 	_switch_menu(_main_menu)
+	return
