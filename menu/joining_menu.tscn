@@ -50,5 +50,6 @@ margin_right = 296.0
 margin_bottom = 80.0
 text = "Back"
 
+[connection signal="visibility_changed" from="." to="." method="_on_visibility_changed"]
 [connection signal="pressed" from="PanelContainer/VBoxContainer/Cancel" to="." method="_on_cancelled_pressed"]
 [connection signal="pressed" from="PanelContainer/VBoxContainer/Back" to="." method="_on_back_pressed"]

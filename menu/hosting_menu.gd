@@ -12,6 +12,9 @@ func _ready():
 
 
 func _on_connection_closed():
+	# skip if not the active menu
+	if not visible:
+		return
 	# only switch to the main menu when connection is closed
 	_switch_menu(_main_menu)
 	return
