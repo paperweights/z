@@ -2,11 +2,13 @@ class_name HostMenu
 extends Menu
 
 export(NodePath) var _main_menu_node
+export(NodePath) var _hosting_menu_node
 
 var _port: int = GameState.DEFAULT_PORT
 var _max_players: int = 10
 
 onready var _main_menu: CenterContainer = get_node(_main_menu_node)
+onready var _hosting_menu: CenterContainer = get_node(_hosting_menu_node)
 onready var _host_button: Button = $PanelContainer/VBoxContainer/Host
 
 
@@ -16,11 +18,8 @@ func _ready():
 
 
 func _on_host_pressed():
-	# disable all inputs while setting up host
-	$PanelContainer/VBoxContainer/Port/LineEdit.editable = false
-	_host_button.disabled = true
-	$PanelContainer/VBoxContainer/Back.disabled = true
 	GameState.host_game(_port, _max_players)
+	_switch_menu(_hosting_menu)
 	return
 
 

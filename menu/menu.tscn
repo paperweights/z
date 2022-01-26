@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://menu/main_menu.tscn" type="PackedScene" id=1]
 [ext_resource path="res://menu/join_menu.tscn" type="PackedScene" id=2]
@@ -6,12 +6,11 @@
 [ext_resource path="res://menu/host_menu.tscn" type="PackedScene" id=4]
 [ext_resource path="res://menu/options_menu.tscn" type="PackedScene" id=5]
 [ext_resource path="res://menu/joining_menu.tscn" type="PackedScene" id=6]
+[ext_resource path="res://menu/hosting_menu.tscn" type="PackedScene" id=7]
 
 [node name="Menu" type="Control"]
-margin_left = 512.0
-margin_top = 300.0
-margin_right = 512.0
-margin_bottom = 300.0
+anchor_right = 1.0
+anchor_bottom = 1.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -41,6 +40,7 @@ margin_right = 37.5
 margin_bottom = 49.5
 _main_menu_node = NodePath("../MainMenu")
 _server_info_menu_node = NodePath("../ServerInfoMenu")
+_joining_menu_node = NodePath("../JoiningMenu")
 
 [node name="JoiningMenu" parent="." instance=ExtResource( 6 )]
 visible = false
@@ -52,6 +52,7 @@ margin_left = -155.0
 margin_top = -35.0
 margin_right = 155.0
 margin_bottom = 35.0
+_join_menu_node = NodePath("../JoinMenu")
 
 [node name="ServerInfoMenu" parent="." instance=ExtResource( 3 )]
 visible = false
@@ -76,6 +77,17 @@ margin_top = -45.0
 margin_right = 46.0
 margin_bottom = 45.0
 _main_menu_node = NodePath("../MainMenu")
+_hosting_menu_node = NodePath("../HostingMenu")
+
+[node name="HostingMenu" parent="." instance=ExtResource( 7 )]
+visible = false
+anchor_top = 0.5
+anchor_right = 0.0
+anchor_bottom = 0.5
+margin_left = 100.0
+margin_top = -26.0
+margin_right = 105.0
+margin_bottom = 26.0
 
 [node name="OptionsMenu" parent="." instance=ExtResource( 5 )]
 visible = false

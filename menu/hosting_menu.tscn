@@ -1,0 +1,31 @@
+[gd_scene format=2]
+
+[node name="HostingMenu" type="CenterContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+margin_left = 459.0
+margin_top = 274.0
+margin_right = 564.0
+margin_bottom = 326.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer"]
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 98.0
+margin_bottom = 45.0
+
+[node name="Label" type="Label" parent="PanelContainer/VBoxContainer"]
+margin_right = 91.0
+margin_bottom = 14.0
+text = "Hosting Game"
+
+[node name="Button" type="Button" parent="PanelContainer/VBoxContainer"]
+margin_top = 18.0
+margin_right = 91.0
+margin_bottom = 38.0
+text = "Stop"

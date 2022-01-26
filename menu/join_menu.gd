@@ -5,12 +5,14 @@ signal edit_server(server_name)
 
 export(NodePath) var _main_menu_node
 export(NodePath) var _server_info_menu_node
+export(NodePath) var _joining_menu_node
 
 var _config: ConfigFile = ConfigFile.new()
 var _selected_server: int
 
 onready var _main_menu: CenterContainer = get_node(_main_menu_node)
 onready var _server_info_menu: CenterContainer = get_node(_server_info_menu_node)
+onready var _joining_menu: CenterContainer = get_node(_joining_menu_node)
 onready var _servers: ItemList = $PanelContainer/VBoxContainer/Servers
 
 
@@ -38,11 +40,11 @@ func _toggle_buttons(disabled: bool):
 
 
 func _on_join_pressed():
-	print('Joining Server')
 	var section = _servers.get_item_text(_selected_server)
 	var address = _config.get_value(section, ServerInfoMenu.ADDRESS_KEY)
 	var port = _config.get_value(section, ServerInfoMenu.PORT_KEY)
 	GameState.join_game(address, port)
+	_switch_menu(_joining_menu)
 	return
 
 

@@ -30,6 +30,11 @@ _global_script_classes=[ {
 "path": "res://menu/join_menu.gd"
 }, {
 "base": "Menu",
+"class": "JoiningMenu",
+"language": "GDScript",
+"path": "res://menu/joining_menu.gd"
+}, {
+"base": "Menu",
 "class": "MainMenu",
 "language": "GDScript",
 "path": "res://menu/main_menu.gd"
@@ -59,6 +64,7 @@ _global_script_class_icons={
 "HostMenu": "",
 "IpAddressLine": "",
 "JoinMenu": "",
+"JoiningMenu": "",
 "MainMenu": "",
 "Menu": "",
 "PortLine": "",
