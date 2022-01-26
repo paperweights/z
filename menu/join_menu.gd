@@ -2,6 +2,7 @@ class_name JoinMenu
 extends Menu
 
 signal edit_server(server_name)
+signal joining_server(address, port)
 
 export(NodePath) var _main_menu_node
 export(NodePath) var _server_info_menu_node
@@ -47,7 +48,8 @@ func _on_join_pressed():
 	login_data.server_password = _config.get_value(section, ServerInfoMenu.SERVER_PASSWORD_KEY)
 	login_data.username = _config.get_value(section, ServerInfoMenu.USERNAME_KEY)
 	login_data.password = _config.get_value(section, ServerInfoMenu.PASSWORD_KEY)
-	GameState.join_game(address, port, login_data)
+	var status = GameState.join_game(address, port, login_data)
+	emit_signal("joining_server", address, port)
 	_switch_menu(_joining_menu)
 	return
 

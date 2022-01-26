@@ -4,6 +4,7 @@ extends Node
 signal connection_succeeded()
 signal connection_failed()
 signal connection_closed()
+signal authentication_failed()
 
 # https://en.wikipedia.org/wiki/List_of_TCP_and_UDP_port_numbers
 const MIN_PORT = 1
@@ -23,25 +24,31 @@ func _ready():
 	return
 
 
-func host_game(port: int, max_clients: int):
+func host_game(port: int, max_clients: int) -> int:
+	print("Hosting server at port: %d" % port)
 	peer = NetworkedMultiplayerENet.new()
-	peer.create_server(port, max_clients)
+	var status = peer.create_server(port, max_clients)
+	print("Hosting server status: %d" % status)
+	if status != OK:
+		return status
 	get_tree().set_network_peer(peer)
-	print("Hosting server")
-	return
+	return status
 
 
-func join_game(address: String, port: int, login_data: LoginData):
+func join_game(address: String, port: int, login_data: LoginData) -> int:
+	print("Connecting to server at IP: %s:%d" % [address, port])
 	peer = NetworkedMultiplayerENet.new()
-	peer.create_client(address, port)
+	var status = peer.create_client(address, port)
+	print("Connecting to server status %d" % status)
+	if status != OK:
+		return status
 	get_tree().set_network_peer(peer)
 	_login_data = login_data
-	print("Connecting to server")
-	return
+	return status
 
 
 func close_connection():
-	print("Disconnecting")
+	print("Closing connection")
 	peer.close_connection()
 	get_tree().set_network_peer(null)
 	emit_signal("connection_closed")
@@ -59,7 +66,7 @@ func _player_disconnected(id: int):
 
 
 func _server_disconnected():
-	print("Server closed")
+	print("Server disconnected")
 	return
 
 
@@ -77,13 +84,16 @@ func _connected_fail():
 	emit_signal("connection_failed")
 	return
 
+
 remote func login_request(login_data: LoginData):
 	var player = get_tree().get_rpc_sender_id()
+	print("Authenticating player: %s" % player)
 	var result = false
-	print("Player: " + str(player) + " logging in")
+	print("Authentication result: %s" % result)
 	rpc_id(player, "login_result", result)
 	# kick player if failed to login
 	if not result:
+		print("Kicking player: %s" % player)
 		peer.disconnect_peer(player)
 	return
 
@@ -94,5 +104,7 @@ remote func login_result(result: bool):
 		emit_signal("connection_succeeded")
 	# disconnect self if failed to authenticate
 	else:
-		_connected_fail()
+		print("Failed to authenticate with server")
+		emit_signal("authentication_failed")
+		close_connection()
 	return
