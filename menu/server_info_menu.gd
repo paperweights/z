@@ -55,7 +55,7 @@ func _refresh_done():
 		disabled = true
 	elif not _address.is_valid_ip_address():
 		disabled = true
-	elif _port < PortLine.MIN_PORT or _port > PortLine.MAX_PORT:
+	elif _port < GameState.MIN_PORT or _port > GameState.MAX_PORT:
 		disabled = true
 	_done_button.disabled = disabled
 	return

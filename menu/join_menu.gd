@@ -8,8 +8,6 @@ export(NodePath) var _server_info_menu_node
 
 var _config: ConfigFile = ConfigFile.new()
 var _selected_server: int
-var _address: String = "127.0.0.1"
-var _port: int = GameState.DEFAULT_PORT
 
 onready var _main_menu: CenterContainer = get_node(_main_menu_node)
 onready var _server_info_menu: CenterContainer = get_node(_server_info_menu_node)
@@ -42,6 +40,10 @@ func _toggle_buttons(disabled: bool):
 
 func _on_join_pressed():
 	print('Joining Server')
+	var section = _servers.get_item_text(_selected_server)
+	var address = _config.get_value(section, ServerInfoMenu.ADDRESS_KEY)
+	var port = _config.get_value(section, ServerInfoMenu.PORT_KEY)
+	GameState.join_game(address, port)
 	return
 
 

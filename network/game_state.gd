@@ -43,3 +43,15 @@ func _player_connected(id: int):
 func _player_disconnected(id: int):
 	print("Player: " + str(id) + " disconnected")
 	return
+
+
+func _connected_ok():
+	print("Connected to the server successfully")
+	emit_signal("connection_succeeded")
+	return
+
+
+func _connected_fail():
+	print("Failed to connect to the server!")
+	emit_signal("connection_failed")
+	return
