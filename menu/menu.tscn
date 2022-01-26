@@ -1,6 +1,9 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://menu/main_menu.gd" type="Script" id=1]
+[ext_resource path="res://menu/join_menu.gd" type="Script" id=2]
+[ext_resource path="res://menu/line_edits/ip_address_line.gd" type="Script" id=3]
+[ext_resource path="res://menu/line_edits/port_line.gd" type="Script" id=4]
 
 [node name="Menu" type="Control"]
 anchor_right = 1.0
@@ -65,15 +68,17 @@ text = "Quit"
 visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
+script = ExtResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+_main_menu_node = NodePath("../MainMenu")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="JoinMenu"]
 margin_left = 427.0
-margin_top = 211.0
+margin_top = 199.0
 margin_right = 597.0
-margin_bottom = 389.0
+margin_bottom = 401.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -102,6 +107,7 @@ margin_left = 112.0
 margin_right = 170.0
 margin_bottom = 24.0
 expand_to_text_length = true
+script = ExtResource( 3 )
 
 [node name="Port" type="HBoxContainer" parent="JoinMenu/VBoxContainer"]
 margin_top = 46.0
@@ -122,6 +128,7 @@ margin_right = 170.0
 margin_bottom = 24.0
 max_length = 5
 expand_to_text_length = true
+script = ExtResource( 4 )
 
 [node name="ServerPassword" type="HBoxContainer" parent="JoinMenu/VBoxContainer"]
 margin_top = 74.0
@@ -189,6 +196,12 @@ margin_top = 158.0
 margin_right = 170.0
 margin_bottom = 178.0
 text = "Join"
+
+[node name="Back" type="Button" parent="JoinMenu/VBoxContainer"]
+margin_top = 182.0
+margin_right = 170.0
+margin_bottom = 202.0
+text = "Back"
 
 [node name="HostMenu" type="CenterContainer" parent="."]
 visible = false
@@ -291,3 +304,7 @@ text = "Back"
 [connection signal="pressed" from="MainMenu/VBoxContainer/Host" to="MainMenu" method="_on_Host_pressed"]
 [connection signal="pressed" from="MainMenu/VBoxContainer/Options" to="MainMenu" method="_on_Options_pressed"]
 [connection signal="pressed" from="MainMenu/VBoxContainer/Quit" to="MainMenu" method="_on_Quit_pressed"]
+[connection signal="changed" from="JoinMenu/VBoxContainer/IpAddress/LineEdit" to="JoinMenu" method="_on_address_changed"]
+[connection signal="changed" from="JoinMenu/VBoxContainer/Port/LineEdit" to="JoinMenu" method="_on_port_changed"]
+[connection signal="pressed" from="JoinMenu/VBoxContainer/Join" to="JoinMenu" method="_on_Join_pressed"]
+[connection signal="pressed" from="JoinMenu/VBoxContainer/Back" to="JoinMenu" method="_on_Back_pressed"]

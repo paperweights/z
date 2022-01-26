@@ -1,7 +1,6 @@
 class_name MainMenu
 extends Menu
 
-
 export(NodePath) var _join_menu_node
 export(NodePath) var _host_menu_node
 export(NodePath) var _options_menu_node

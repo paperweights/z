@@ -10,6 +10,11 @@ config_version=4
 
 _global_script_classes=[ {
 "base": "Menu",
+"class": "JoinMenu",
+"language": "GDScript",
+"path": "res://menu/join_menu.gd"
+}, {
+"base": "Menu",
 "class": "MainMenu",
 "language": "GDScript",
 "path": "res://menu/main_menu.gd"
@@ -18,10 +23,23 @@ _global_script_classes=[ {
 "class": "Menu",
 "language": "GDScript",
 "path": "res://menu/menu.gd"
+}, {
+"base": "ValidLine",
+"class": "PortLine",
+"language": "GDScript",
+"path": "res://menu/line_edits/port_line.gd"
+}, {
+"base": "LineEdit",
+"class": "ValidLine",
+"language": "GDScript",
+"path": "res://menu/line_edits/valid_line.gd"
 } ]
 _global_script_class_icons={
+"JoinMenu": "",
 "MainMenu": "",
-"Menu": ""
+"Menu": "",
+"PortLine": "",
+"ValidLine": ""
 }
 
 [application]
