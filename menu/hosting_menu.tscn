@@ -1,8 +1,11 @@
-[gd_scene format=2]
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://menu/hosting_menu.gd" type="Script" id=1]
 
 [node name="HostingMenu" type="CenterContainer"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -19,13 +22,15 @@ margin_top = 7.0
 margin_right = 98.0
 margin_bottom = 45.0
 
-[node name="Label" type="Label" parent="PanelContainer/VBoxContainer"]
+[node name="Title" type="Label" parent="PanelContainer/VBoxContainer"]
 margin_right = 91.0
 margin_bottom = 14.0
 text = "Hosting Game"
 
-[node name="Button" type="Button" parent="PanelContainer/VBoxContainer"]
+[node name="Stop" type="Button" parent="PanelContainer/VBoxContainer"]
 margin_top = 18.0
 margin_right = 91.0
 margin_bottom = 38.0
 text = "Stop"
+
+[connection signal="pressed" from="PanelContainer/VBoxContainer/Stop" to="." method="_on_stop_pressed"]

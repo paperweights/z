@@ -88,6 +88,7 @@ margin_left = 100.0
 margin_top = -26.0
 margin_right = 105.0
 margin_bottom = 26.0
+_main_menu_node = NodePath("../MainMenu")
 
 [node name="OptionsMenu" parent="." instance=ExtResource( 5 )]
 visible = false

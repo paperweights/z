@@ -3,6 +3,7 @@ extends Node
 # signals to update gui
 signal connection_succeeded()
 signal connection_failed()
+signal connection_closed()
 
 # https://en.wikipedia.org/wiki/List_of_TCP_and_UDP_port_numbers
 const MIN_PORT = 1
@@ -39,6 +40,14 @@ func join_game(address: String, port: int, login_data: LoginData):
 	return
 
 
+func close_connection():
+	print("Disconnecting")
+	peer.close_connection()
+	get_tree().set_network_peer(null)
+	emit_signal("connection_closed")
+	return
+
+
 func _player_connected(id: int):
 	print("Player: %s connected with IP:%s%s" % [id, peer.get_peer_address(id), peer.get_peer_port(id)])
 	return
@@ -63,8 +72,8 @@ func _connected_ok():
 
 
 func _connected_fail():
-	peer.close_connection()
-	get_tree().set_network_peer(null)
+	print("Failed to connect to server")
+	close_connection()
 	emit_signal("connection_failed")
 	return
 
@@ -83,6 +92,7 @@ remote func login_result(result: bool):
 	if result:
 		# only emit signal when authenticated
 		emit_signal("connection_succeeded")
+	# disconnect self if failed to authenticate
 	else:
 		_connected_fail()
 	return
