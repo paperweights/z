@@ -1,0 +1,57 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://menu/main_menu.gd" type="Script" id=1]
+
+[node name="MainMenu" type="CenterContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+margin_left = 480.0
+margin_top = 245.0
+margin_right = 543.0
+margin_bottom = 355.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Title" type="Label" parent="VBoxContainer"]
+margin_right = 63.0
+margin_bottom = 14.0
+text = "Z"
+align = 1
+
+[node name="Join" type="Button" parent="VBoxContainer"]
+margin_top = 18.0
+margin_right = 63.0
+margin_bottom = 38.0
+text = "Join"
+
+[node name="Host" type="Button" parent="VBoxContainer"]
+margin_top = 42.0
+margin_right = 63.0
+margin_bottom = 62.0
+text = "Host"
+
+[node name="Options" type="Button" parent="VBoxContainer"]
+margin_top = 66.0
+margin_right = 63.0
+margin_bottom = 86.0
+text = "Options"
+
+[node name="Quit" type="Button" parent="VBoxContainer"]
+margin_top = 90.0
+margin_right = 63.0
+margin_bottom = 110.0
+text = "Quit"
+
+[connection signal="pressed" from="VBoxContainer/Join" to="." method="_on_Join_pressed"]
+[connection signal="pressed" from="VBoxContainer/Host" to="." method="_on_Host_pressed"]
+[connection signal="pressed" from="VBoxContainer/Options" to="." method="_on_Options_pressed"]
+[connection signal="pressed" from="VBoxContainer/Quit" to="." method="_on_Quit_pressed"]

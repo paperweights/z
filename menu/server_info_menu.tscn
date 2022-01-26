@@ -1,0 +1,177 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://menu/line_edits/ip_address_line.gd" type="Script" id=1]
+[ext_resource path="res://menu/line_edits/port_line.gd" type="Script" id=2]
+[ext_resource path="res://menu/server_info_menu.gd" type="Script" id=3]
+[ext_resource path="res://menu/line_edits/ascii_line.gd" type="Script" id=4]
+
+[node name="ServerInfoMenu" type="CenterContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+margin_left = 427.0
+margin_top = 185.0
+margin_right = 597.0
+margin_bottom = 415.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Title" type="Label" parent="VBoxContainer"]
+margin_right = 170.0
+margin_bottom = 14.0
+text = "Server Info"
+align = 1
+
+[node name="Name" type="HBoxContainer" parent="VBoxContainer"]
+margin_top = 18.0
+margin_right = 170.0
+margin_bottom = 42.0
+alignment = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/Name"]
+margin_left = 22.0
+margin_top = 5.0
+margin_right = 108.0
+margin_bottom = 19.0
+text = "Server Name:"
+
+[node name="LineEdit" type="LineEdit" parent="VBoxContainer/Name"]
+margin_left = 112.0
+margin_right = 170.0
+margin_bottom = 24.0
+max_length = 32
+expand_to_text_length = true
+script = ExtResource( 4 )
+
+[node name="IpAddress" type="HBoxContainer" parent="VBoxContainer"]
+margin_top = 46.0
+margin_right = 170.0
+margin_bottom = 70.0
+alignment = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/IpAddress"]
+margin_left = 35.0
+margin_top = 5.0
+margin_right = 108.0
+margin_bottom = 19.0
+text = "IP Address:"
+
+[node name="LineEdit" type="LineEdit" parent="VBoxContainer/IpAddress"]
+margin_left = 112.0
+margin_right = 170.0
+margin_bottom = 24.0
+expand_to_text_length = true
+script = ExtResource( 1 )
+
+[node name="Port" type="HBoxContainer" parent="VBoxContainer"]
+margin_top = 74.0
+margin_right = 170.0
+margin_bottom = 98.0
+alignment = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/Port"]
+margin_left = 78.0
+margin_top = 5.0
+margin_right = 108.0
+margin_bottom = 19.0
+text = "Port:"
+
+[node name="LineEdit" type="LineEdit" parent="VBoxContainer/Port"]
+margin_left = 112.0
+margin_right = 170.0
+margin_bottom = 24.0
+max_length = 5
+expand_to_text_length = true
+script = ExtResource( 2 )
+
+[node name="ServerPassword" type="HBoxContainer" parent="VBoxContainer"]
+margin_top = 102.0
+margin_right = 170.0
+margin_bottom = 126.0
+alignment = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/ServerPassword"]
+margin_top = 5.0
+margin_right = 108.0
+margin_bottom = 19.0
+text = "Server Password:"
+
+[node name="LineEdit" type="LineEdit" parent="VBoxContainer/ServerPassword"]
+margin_left = 112.0
+margin_right = 170.0
+margin_bottom = 24.0
+max_length = 32
+secret = true
+expand_to_text_length = true
+script = ExtResource( 4 )
+
+[node name="Username" type="HBoxContainer" parent="VBoxContainer"]
+margin_top = 130.0
+margin_right = 170.0
+margin_bottom = 154.0
+alignment = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/Username"]
+margin_left = 38.0
+margin_top = 5.0
+margin_right = 108.0
+margin_bottom = 19.0
+text = "Username:"
+
+[node name="LineEdit" type="LineEdit" parent="VBoxContainer/Username"]
+margin_left = 112.0
+margin_right = 170.0
+margin_bottom = 24.0
+max_length = 32
+expand_to_text_length = true
+script = ExtResource( 4 )
+
+[node name="Password" type="HBoxContainer" parent="VBoxContainer"]
+margin_top = 158.0
+margin_right = 170.0
+margin_bottom = 182.0
+alignment = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/Password"]
+margin_left = 48.0
+margin_top = 5.0
+margin_right = 108.0
+margin_bottom = 19.0
+text = "Password"
+
+[node name="LineEdit" type="LineEdit" parent="VBoxContainer/Password"]
+margin_left = 112.0
+margin_right = 170.0
+margin_bottom = 24.0
+max_length = 32
+secret = true
+expand_to_text_length = true
+script = ExtResource( 4 )
+
+[node name="Done" type="Button" parent="VBoxContainer"]
+margin_top = 186.0
+margin_right = 170.0
+margin_bottom = 206.0
+disabled = true
+text = "Done"
+
+[node name="Back" type="Button" parent="VBoxContainer"]
+margin_top = 210.0
+margin_right = 170.0
+margin_bottom = 230.0
+text = "Back"
+
+[connection signal="changed" from="VBoxContainer/Name/LineEdit" to="." method="_on_name_changed"]
+[connection signal="changed" from="VBoxContainer/IpAddress/LineEdit" to="." method="_on_address_changed"]
+[connection signal="changed" from="VBoxContainer/Port/LineEdit" to="." method="_on_port_changed"]
+[connection signal="changed" from="VBoxContainer/ServerPassword/LineEdit" to="." method="_on_server_password_changed"]
+[connection signal="changed" from="VBoxContainer/Username/LineEdit" to="." method="_on_username_changed"]
+[connection signal="changed" from="VBoxContainer/Password/LineEdit" to="." method="_on_password_changed"]
+[connection signal="pressed" from="VBoxContainer/Done" to="." method="_on_done_pressed"]
+[connection signal="pressed" from="VBoxContainer/Back" to="." method="_on_back_pressed"]

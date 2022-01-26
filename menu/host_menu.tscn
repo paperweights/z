@@ -1,0 +1,63 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://menu/host_menu.gd" type="Script" id=1]
+[ext_resource path="res://menu/line_edits/port_line.gd" type="Script" id=2]
+
+[node name="HostMenu" type="CenterContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+margin_left = 466.0
+margin_top = 255.0
+margin_right = 558.0
+margin_bottom = 345.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Title" type="Label" parent="VBoxContainer"]
+margin_right = 92.0
+margin_bottom = 14.0
+text = "Host"
+align = 1
+
+[node name="Port" type="HBoxContainer" parent="VBoxContainer"]
+margin_top = 18.0
+margin_right = 92.0
+margin_bottom = 42.0
+alignment = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/Port"]
+margin_top = 5.0
+margin_right = 30.0
+margin_bottom = 19.0
+text = "Port:"
+
+[node name="LineEdit" type="LineEdit" parent="VBoxContainer/Port"]
+margin_left = 34.0
+margin_right = 92.0
+margin_bottom = 24.0
+max_length = 5
+expand_to_text_length = true
+script = ExtResource( 2 )
+
+[node name="Host" type="Button" parent="VBoxContainer"]
+margin_top = 46.0
+margin_right = 92.0
+margin_bottom = 66.0
+text = "Host"
+
+[node name="Back" type="Button" parent="VBoxContainer"]
+margin_top = 70.0
+margin_right = 92.0
+margin_bottom = 90.0
+text = "Back"
+
+[connection signal="changed" from="VBoxContainer/Port/LineEdit" to="." method="_on_LineEdit_changed"]
+[connection signal="pressed" from="VBoxContainer/Host" to="." method="_on_host_pressed"]
+[connection signal="pressed" from="VBoxContainer/Back" to="." method="_on_Back_pressed"]

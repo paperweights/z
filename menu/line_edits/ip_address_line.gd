@@ -1,3 +1,4 @@
+class_name IpAddressLine
 extends ValidLine
 
 

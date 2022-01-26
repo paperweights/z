@@ -9,10 +9,20 @@
 config_version=4
 
 _global_script_classes=[ {
+"base": "ValidLine",
+"class": "AsciiLine",
+"language": "GDScript",
+"path": "res://menu/line_edits/ascii_line.gd"
+}, {
 "base": "Menu",
 "class": "HostMenu",
 "language": "GDScript",
 "path": "res://menu/host_menu.gd"
+}, {
+"base": "ValidLine",
+"class": "IpAddressLine",
+"language": "GDScript",
+"path": "res://menu/line_edits/ip_address_line.gd"
 }, {
 "base": "Menu",
 "class": "JoinMenu",
@@ -34,17 +44,25 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://menu/line_edits/port_line.gd"
 }, {
+"base": "Menu",
+"class": "ServerInfoMenu",
+"language": "GDScript",
+"path": "res://menu/server_info_menu.gd"
+}, {
 "base": "LineEdit",
 "class": "ValidLine",
 "language": "GDScript",
 "path": "res://menu/line_edits/valid_line.gd"
 } ]
 _global_script_class_icons={
+"AsciiLine": "",
 "HostMenu": "",
+"IpAddressLine": "",
 "JoinMenu": "",
 "MainMenu": "",
 "Menu": "",
 "PortLine": "",
+"ServerInfoMenu": "",
 "ValidLine": ""
 }
 
@@ -53,6 +71,10 @@ _global_script_class_icons={
 config/name="z"
 run/main_scene="res://menu/menu.tscn"
 config/icon="res://icon.png"
+
+[autoload]
+
+GameState="*res://network/game_state.gd"
 
 [physics]
 
