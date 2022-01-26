@@ -40,12 +40,12 @@ func join_game(address: String, port: int, login_data: LoginData):
 
 
 func _player_connected(id: int):
-	print("Player: " + str(id) + " connected")
+	print("Player: %s connected with IP:%s%s" % [id, peer.get_peer_address(id), peer.get_peer_port(id)])
 	return
 
 
 func _player_disconnected(id: int):
-	print("Player: " + str(id) + " disconnected")
+	print("Player: %s disconnected!" % id)
 	return
 
 
