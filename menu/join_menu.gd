@@ -11,8 +11,7 @@ var _selected_server: int
 
 onready var _main_menu: CenterContainer = get_node(_main_menu_node)
 onready var _server_info_menu: CenterContainer = get_node(_server_info_menu_node)
-onready var _join_button: Button = $VBoxContainer/Join
-onready var _servers: ItemList = $VBoxContainer/Servers
+onready var _servers: ItemList = $PanelContainer/VBoxContainer/Servers
 
 
 func _on_visibility_changed():
@@ -32,9 +31,9 @@ func _refresh_servers():
 
 
 func _toggle_buttons(disabled: bool):
-	$VBoxContainer/HBoxContainer/Join.disabled = disabled
-	$VBoxContainer/HBoxContainer/Edit.disabled = disabled
-	$VBoxContainer/HBoxContainer/Delete.disabled = disabled
+	$PanelContainer/VBoxContainer/HBoxContainer/Join.disabled = disabled
+	$PanelContainer/VBoxContainer/HBoxContainer/Edit.disabled = disabled
+	$PanelContainer/VBoxContainer/HBoxContainer/Delete.disabled = disabled
 	return
 
 

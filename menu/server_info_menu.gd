@@ -21,7 +21,7 @@ var _username: String
 var _password: String
 
 onready var _join_menu: CenterContainer = get_node(_join_menu_node)
-onready var _done_button: Button = $VBoxContainer/Done
+onready var _done_button: Button = $PanelContainer/VBoxContainer/Done
 
 
 func _on_visibility_changed():
@@ -40,12 +40,12 @@ func _on_visibility_changed():
 
 
 func _refresh_lines():
-	$VBoxContainer/Name/LineEdit.text = _name
-	$VBoxContainer/IpAddress/LineEdit.text = _address
-	$VBoxContainer/Port/LineEdit.text = str(_port)
-	$VBoxContainer/ServerPassword/LineEdit.text = _server_password
-	$VBoxContainer/Username/LineEdit.text = _username
-	$VBoxContainer/Password/LineEdit.text = _password
+	$PanelContainer/VBoxContainer/Name/LineEdit.text = _name
+	$PanelContainer/VBoxContainer/IpAddress/LineEdit.text = _address
+	$PanelContainer/VBoxContainer/Port/LineEdit.text = str(_port)
+	$PanelContainer/VBoxContainer/ServerPassword/LineEdit.text = _server_password
+	$PanelContainer/VBoxContainer/Username/LineEdit.text = _username
+	$PanelContainer/VBoxContainer/Password/LineEdit.text = _password
 	return
 
 

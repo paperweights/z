@@ -1,0 +1,41 @@
+[gd_scene format=2]
+
+[node name="JoiningMenu" type="CenterContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+margin_left = 357.0
+margin_top = 265.0
+margin_right = 667.0
+margin_bottom = 335.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer"]
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 303.0
+margin_bottom = 63.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Title" type="Label" parent="PanelContainer/VBoxContainer"]
+margin_right = 296.0
+margin_bottom = 14.0
+text = "Joining Server"
+align = 1
+
+[node name="Status" type="Label" parent="PanelContainer/VBoxContainer"]
+margin_top = 18.0
+margin_right = 296.0
+margin_bottom = 32.0
+text = "Connecting to server name at 127.0.0.1:42069"
+
+[node name="Cancel" type="Button" parent="PanelContainer/VBoxContainer"]
+margin_top = 36.0
+margin_right = 296.0
+margin_bottom = 56.0
+text = "Cancel"
