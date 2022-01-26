@@ -3,7 +3,8 @@ extends Menu
 
 export(NodePath) var _main_menu_node
 
-var _port: int = 42069
+var _port: int = GameState.DEFAULT_PORT
+var _max_players: int = 10
 
 onready var _main_menu: CenterContainer = get_node(_main_menu_node)
 onready var _host_button: Button = $VBoxContainer/Host
@@ -20,6 +21,7 @@ func _on_host_pressed():
 	$VBoxContainer/Port/LineEdit.editable = false
 	_host_button.disabled = true
 	$VBoxContainer/Back.disabled = true
+	GameState.host_game(_port, _max_players)
 	return
 
 
