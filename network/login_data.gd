@@ -1,11 +1,17 @@
 class_name LoginData
 extends Reference
 
-var server_password: String
-var username: String
-var password: String
+var _server_password: String
+var _username: String
+var _password: String
+
+
+func _init(server_password: String, username: String, password: String):
+	_server_password = server_password
+	_username = username
+	_password = password
 
 func clear():
-	server_password = ""
-	username = ""
-	password = ""
+	_server_password = ""
+	_username = ""
+	_password = ""

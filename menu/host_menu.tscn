@@ -1,7 +1,6 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=2 format=2]
 
 [ext_resource path="res://menu/host_menu.gd" type="Script" id=1]
-[ext_resource path="res://menu/line_edits/port_line.gd" type="Script" id=2]
 
 [node name="HostMenu" type="CenterContainer"]
 anchor_right = 1.0
@@ -12,58 +11,69 @@ __meta__ = {
 }
 
 [node name="PanelContainer" type="PanelContainer" parent="."]
-margin_left = 459.0
-margin_top = 248.0
-margin_right = 565.0
-margin_bottom = 352.0
+margin_left = 434.0
+margin_top = 243.0
+margin_right = 589.0
+margin_bottom = 356.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer"]
 margin_left = 7.0
 margin_top = 7.0
-margin_right = 99.0
-margin_bottom = 97.0
+margin_right = 148.0
+margin_bottom = 106.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Title" type="Label" parent="PanelContainer/VBoxContainer"]
-margin_right = 92.0
+margin_right = 141.0
 margin_bottom = 14.0
 text = "Host"
 align = 1
 
-[node name="Port" type="HBoxContainer" parent="PanelContainer/VBoxContainer"]
+[node name="Servers" type="ItemList" parent="PanelContainer/VBoxContainer"]
 margin_top = 18.0
-margin_right = 92.0
-margin_bottom = 42.0
-alignment = 2
+margin_right = 141.0
+margin_bottom = 27.0
+auto_height = true
 
-[node name="Label" type="Label" parent="PanelContainer/VBoxContainer/Port"]
-margin_top = 5.0
-margin_right = 30.0
-margin_bottom = 19.0
-text = "Port:"
+[node name="Add" type="Button" parent="PanelContainer/VBoxContainer"]
+margin_top = 31.0
+margin_right = 141.0
+margin_bottom = 51.0
+text = "Add"
 
-[node name="LineEdit" type="LineEdit" parent="PanelContainer/VBoxContainer/Port"]
-margin_left = 34.0
-margin_right = 92.0
-margin_bottom = 24.0
-max_length = 5
-expand_to_text_length = true
-script = ExtResource( 2 )
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/VBoxContainer"]
+margin_top = 55.0
+margin_right = 141.0
+margin_bottom = 75.0
 
-[node name="Host" type="Button" parent="PanelContainer/VBoxContainer"]
-margin_top = 46.0
-margin_right = 92.0
-margin_bottom = 66.0
+[node name="Host" type="Button" parent="PanelContainer/VBoxContainer/HBoxContainer"]
+margin_right = 42.0
+margin_bottom = 20.0
+disabled = true
 text = "Host"
 
+[node name="Edit" type="Button" parent="PanelContainer/VBoxContainer/HBoxContainer"]
+margin_left = 46.0
+margin_right = 82.0
+margin_bottom = 20.0
+disabled = true
+text = "Edit"
+
+[node name="Delete" type="Button" parent="PanelContainer/VBoxContainer/HBoxContainer"]
+margin_left = 86.0
+margin_right = 141.0
+margin_bottom = 20.0
+disabled = true
+text = "Delete"
+
 [node name="Back" type="Button" parent="PanelContainer/VBoxContainer"]
-margin_top = 70.0
-margin_right = 92.0
-margin_bottom = 90.0
+margin_top = 79.0
+margin_right = 141.0
+margin_bottom = 99.0
 text = "Back"
 
-[connection signal="changed" from="PanelContainer/VBoxContainer/Port/LineEdit" to="." method="_on_LineEdit_changed"]
-[connection signal="pressed" from="PanelContainer/VBoxContainer/Host" to="." method="_on_host_pressed"]
+[connection signal="pressed" from="PanelContainer/VBoxContainer/Add" to="." method="_on_add_pressed"]
+[connection signal="pressed" from="PanelContainer/VBoxContainer/HBoxContainer/Host" to="." method="_on_host_pressed"]
 [connection signal="pressed" from="PanelContainer/VBoxContainer/Back" to="." method="_on_Back_pressed"]

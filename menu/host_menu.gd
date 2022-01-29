@@ -1,19 +1,31 @@
 class_name HostMenu
 extends Menu
 
+signal edit_host(server)
+
 export(NodePath) var _main_menu_node
 export(NodePath) var _hosting_menu_node
+export(NodePath) var _host_edit_menu_node
 
 var _port: int = GameState.DEFAULT_PORT
 var _max_players: int = 10
 
 onready var _main_menu: CenterContainer = get_node(_main_menu_node)
 onready var _hosting_menu: CenterContainer = get_node(_hosting_menu_node)
-onready var _host_button: Button = $PanelContainer/VBoxContainer/Host
+onready var _host_edit_menu: CenterContainer = get_node(_host_edit_menu_node)
+onready var _servers: ItemList = $PanelContainer/VBoxContainer/Servers
 
 
-func _ready():
-	$PanelContainer/VBoxContainer/Port/LineEdit.text = str(_port)
+func _refresh_servers():
+	_servers.clear()
+	var servers = ServerData.get_servers()
+	for server in servers:
+		_servers.add_item(server)
+	return
+
+
+func _on_add_pressed():
+	_switch_menu(_host_edit_menu)
 	return
 
 
@@ -23,20 +35,11 @@ func _on_host_pressed():
 	return
 
 
-func _update_host():
-	var disabled = false
-	if _port > GameState.MAX_PORT or _port < GameState.MIN_PORT:
-		disabled = true
-	_host_button.disabled = disabled
-	return
-
-
-func _on_LineEdit_changed(new_text: String):
-	_port = int(new_text)
-	_update_host()
-	return
-
-
 func _on_Back_pressed():
 	_switch_menu(_main_menu)
 	return
+
+
+func _on_visibility_changed():
+	if visible:
+		_refresh_servers()

@@ -8,8 +8,7 @@ func _ready():
 
 func _switch_menu(menu: CenterContainer):
 	visible = false
-	if menu:
-		menu.visible = true
+	menu.visible = true
 	return
 
 

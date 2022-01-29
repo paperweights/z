@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://menu/main_menu.tscn" type="PackedScene" id=1]
 [ext_resource path="res://menu/join_menu.tscn" type="PackedScene" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://menu/options_menu.tscn" type="PackedScene" id=5]
 [ext_resource path="res://menu/joining_menu.tscn" type="PackedScene" id=6]
 [ext_resource path="res://menu/hosting_menu.tscn" type="PackedScene" id=7]
+[ext_resource path="res://menu/host_edit_menu.tscn" type="PackedScene" id=8]
 
 [node name="Menu" type="Control"]
 anchor_right = 1.0
@@ -72,12 +73,17 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -46.0
-margin_top = -45.0
-margin_right = 46.0
-margin_bottom = 45.0
+margin_left = -77.5
+margin_top = -56.5
+margin_right = 77.5
+margin_bottom = 56.5
 _main_menu_node = NodePath("../MainMenu")
 _hosting_menu_node = NodePath("../HostingMenu")
+_host_edit_menu_node = NodePath("../HostEditMenu")
+
+[node name="HostEditMenu" parent="." instance=ExtResource( 8 )]
+visible = false
+_host_menu_node = NodePath("../HostMenu")
 
 [node name="HostingMenu" parent="." instance=ExtResource( 7 )]
 visible = false

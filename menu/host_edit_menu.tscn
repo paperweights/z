@@ -1,0 +1,129 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://menu/host_edit_menu.gd" type="Script" id=1]
+[ext_resource path="res://menu/line_edits/ascii_line.gd" type="Script" id=2]
+[ext_resource path="res://menu/line_edits/port_line.gd" type="Script" id=3]
+
+[node name="HostEditMenu" type="CenterContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+margin_left = 442.0
+margin_top = 206.0
+margin_right = 582.0
+margin_bottom = 394.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer"]
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 133.0
+margin_bottom = 181.0
+
+[node name="Title" type="Label" parent="PanelContainer/VBoxContainer"]
+margin_right = 126.0
+margin_bottom = 14.0
+text = "Server Settings"
+align = 1
+
+[node name="Name" type="HBoxContainer" parent="PanelContainer/VBoxContainer"]
+margin_top = 18.0
+margin_right = 126.0
+margin_bottom = 42.0
+alignment = 2
+
+[node name="Label" type="Label" parent="PanelContainer/VBoxContainer/Name"]
+margin_left = 22.0
+margin_top = 5.0
+margin_right = 64.0
+margin_bottom = 19.0
+text = "Name:"
+
+[node name="LineEdit" type="LineEdit" parent="PanelContainer/VBoxContainer/Name"]
+margin_left = 68.0
+margin_right = 126.0
+margin_bottom = 24.0
+max_length = 16
+script = ExtResource( 2 )
+_lowercase = true
+
+[node name="Port" type="HBoxContainer" parent="PanelContainer/VBoxContainer"]
+margin_top = 46.0
+margin_right = 126.0
+margin_bottom = 70.0
+alignment = 2
+
+[node name="Label" type="Label" parent="PanelContainer/VBoxContainer/Port"]
+margin_left = 34.0
+margin_top = 5.0
+margin_right = 64.0
+margin_bottom = 19.0
+text = "Port:"
+
+[node name="LineEdit" type="LineEdit" parent="PanelContainer/VBoxContainer/Port"]
+margin_left = 68.0
+margin_right = 126.0
+margin_bottom = 24.0
+max_length = 5
+script = ExtResource( 3 )
+
+[node name="Password" type="HBoxContainer" parent="PanelContainer/VBoxContainer"]
+margin_top = 74.0
+margin_right = 126.0
+margin_bottom = 98.0
+alignment = 2
+
+[node name="Label" type="Label" parent="PanelContainer/VBoxContainer/Password"]
+margin_top = 5.0
+margin_right = 64.0
+margin_bottom = 19.0
+text = "Password:"
+
+[node name="LineEdit" type="LineEdit" parent="PanelContainer/VBoxContainer/Password"]
+margin_left = 68.0
+margin_right = 126.0
+margin_bottom = 24.0
+max_length = 32
+secret = true
+
+[node name="Open" type="HBoxContainer" parent="PanelContainer/VBoxContainer"]
+margin_top = 102.0
+margin_right = 126.0
+margin_bottom = 126.0
+alignment = 2
+
+[node name="Label" type="Label" parent="PanelContainer/VBoxContainer/Open"]
+margin_left = 59.0
+margin_top = 5.0
+margin_right = 98.0
+margin_bottom = 19.0
+text = "Open:"
+
+[node name="CheckBox" type="CheckBox" parent="PanelContainer/VBoxContainer/Open"]
+margin_left = 102.0
+margin_right = 126.0
+margin_bottom = 24.0
+
+[node name="Done" type="Button" parent="PanelContainer/VBoxContainer"]
+margin_top = 130.0
+margin_right = 126.0
+margin_bottom = 150.0
+disabled = true
+text = "Done"
+
+[node name="Back" type="Button" parent="PanelContainer/VBoxContainer"]
+margin_top = 154.0
+margin_right = 126.0
+margin_bottom = 174.0
+text = "Back"
+
+[connection signal="changed" from="PanelContainer/VBoxContainer/Name/LineEdit" to="." method="_on_name_changed"]
+[connection signal="changed" from="PanelContainer/VBoxContainer/Port/LineEdit" to="." method="_on_port_changed"]
+[connection signal="text_changed" from="PanelContainer/VBoxContainer/Password/LineEdit" to="." method="_on_password_changed"]
+[connection signal="toggled" from="PanelContainer/VBoxContainer/Open/CheckBox" to="." method="_on_open_toggled"]
+[connection signal="pressed" from="PanelContainer/VBoxContainer/Done" to="." method="_on_done_pressed"]
+[connection signal="pressed" from="PanelContainer/VBoxContainer/Back" to="." method="_on_back_pressed"]
