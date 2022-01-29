@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://menu/host_edit_menu.gd" type="Script" id=1]
 [ext_resource path="res://menu/line_edits/ascii_line.gd" type="Script" id=2]
 [ext_resource path="res://menu/line_edits/port_line.gd" type="Script" id=3]
+[ext_resource path="res://menu/line_edits/number_line.gd" type="Script" id=4]
 
 [node name="HostEditMenu" type="CenterContainer"]
 anchor_right = 1.0
@@ -13,39 +14,39 @@ __meta__ = {
 }
 
 [node name="PanelContainer" type="PanelContainer" parent="."]
-margin_left = 442.0
-margin_top = 206.0
-margin_right = 582.0
-margin_bottom = 394.0
+margin_left = 434.0
+margin_top = 192.0
+margin_right = 590.0
+margin_bottom = 408.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer"]
 margin_left = 7.0
 margin_top = 7.0
-margin_right = 133.0
-margin_bottom = 181.0
+margin_right = 149.0
+margin_bottom = 209.0
 
 [node name="Title" type="Label" parent="PanelContainer/VBoxContainer"]
-margin_right = 126.0
+margin_right = 142.0
 margin_bottom = 14.0
 text = "Server Settings"
 align = 1
 
 [node name="Name" type="HBoxContainer" parent="PanelContainer/VBoxContainer"]
 margin_top = 18.0
-margin_right = 126.0
+margin_right = 142.0
 margin_bottom = 42.0
 alignment = 2
 
 [node name="Label" type="Label" parent="PanelContainer/VBoxContainer/Name"]
-margin_left = 22.0
+margin_left = 38.0
 margin_top = 5.0
-margin_right = 64.0
+margin_right = 80.0
 margin_bottom = 19.0
 text = "Name:"
 
 [node name="LineEdit" type="LineEdit" parent="PanelContainer/VBoxContainer/Name"]
-margin_left = 68.0
-margin_right = 126.0
+margin_left = 84.0
+margin_right = 142.0
 margin_bottom = 24.0
 max_length = 16
 script = ExtResource( 2 )
@@ -53,77 +54,99 @@ _lowercase = true
 
 [node name="Port" type="HBoxContainer" parent="PanelContainer/VBoxContainer"]
 margin_top = 46.0
-margin_right = 126.0
+margin_right = 142.0
 margin_bottom = 70.0
 alignment = 2
 
 [node name="Label" type="Label" parent="PanelContainer/VBoxContainer/Port"]
-margin_left = 34.0
+margin_left = 50.0
 margin_top = 5.0
-margin_right = 64.0
+margin_right = 80.0
 margin_bottom = 19.0
 text = "Port:"
 
 [node name="LineEdit" type="LineEdit" parent="PanelContainer/VBoxContainer/Port"]
-margin_left = 68.0
-margin_right = 126.0
+margin_left = 84.0
+margin_right = 142.0
 margin_bottom = 24.0
 max_length = 5
 script = ExtResource( 3 )
 
 [node name="Password" type="HBoxContainer" parent="PanelContainer/VBoxContainer"]
 margin_top = 74.0
-margin_right = 126.0
+margin_right = 142.0
 margin_bottom = 98.0
 alignment = 2
 
 [node name="Label" type="Label" parent="PanelContainer/VBoxContainer/Password"]
+margin_left = 16.0
 margin_top = 5.0
-margin_right = 64.0
+margin_right = 80.0
 margin_bottom = 19.0
 text = "Password:"
 
 [node name="LineEdit" type="LineEdit" parent="PanelContainer/VBoxContainer/Password"]
-margin_left = 68.0
-margin_right = 126.0
+margin_left = 84.0
+margin_right = 142.0
 margin_bottom = 24.0
 max_length = 32
 secret = true
 
-[node name="Open" type="HBoxContainer" parent="PanelContainer/VBoxContainer"]
+[node name="MaxPlayers" type="HBoxContainer" parent="PanelContainer/VBoxContainer"]
 margin_top = 102.0
-margin_right = 126.0
+margin_right = 142.0
 margin_bottom = 126.0
 alignment = 2
 
-[node name="Label" type="Label" parent="PanelContainer/VBoxContainer/Open"]
-margin_left = 59.0
+[node name="Label" type="Label" parent="PanelContainer/VBoxContainer/MaxPlayers"]
 margin_top = 5.0
-margin_right = 98.0
+margin_right = 80.0
+margin_bottom = 19.0
+text = "Max Players:"
+
+[node name="LineEdit" type="LineEdit" parent="PanelContainer/VBoxContainer/MaxPlayers"]
+margin_left = 84.0
+margin_right = 142.0
+margin_bottom = 24.0
+max_length = 5
+script = ExtResource( 4 )
+_max = 4095
+
+[node name="Open" type="HBoxContainer" parent="PanelContainer/VBoxContainer"]
+margin_top = 130.0
+margin_right = 142.0
+margin_bottom = 154.0
+alignment = 2
+
+[node name="Label" type="Label" parent="PanelContainer/VBoxContainer/Open"]
+margin_left = 75.0
+margin_top = 5.0
+margin_right = 114.0
 margin_bottom = 19.0
 text = "Open:"
 
 [node name="CheckBox" type="CheckBox" parent="PanelContainer/VBoxContainer/Open"]
-margin_left = 102.0
-margin_right = 126.0
+margin_left = 118.0
+margin_right = 142.0
 margin_bottom = 24.0
 
 [node name="Done" type="Button" parent="PanelContainer/VBoxContainer"]
-margin_top = 130.0
-margin_right = 126.0
-margin_bottom = 150.0
+margin_top = 158.0
+margin_right = 142.0
+margin_bottom = 178.0
 disabled = true
 text = "Done"
 
 [node name="Back" type="Button" parent="PanelContainer/VBoxContainer"]
-margin_top = 154.0
-margin_right = 126.0
-margin_bottom = 174.0
+margin_top = 182.0
+margin_right = 142.0
+margin_bottom = 202.0
 text = "Back"
 
 [connection signal="changed" from="PanelContainer/VBoxContainer/Name/LineEdit" to="." method="_on_name_changed"]
 [connection signal="changed" from="PanelContainer/VBoxContainer/Port/LineEdit" to="." method="_on_port_changed"]
 [connection signal="text_changed" from="PanelContainer/VBoxContainer/Password/LineEdit" to="." method="_on_password_changed"]
+[connection signal="changed" from="PanelContainer/VBoxContainer/MaxPlayers/LineEdit" to="." method="_on_max_players_changed"]
 [connection signal="toggled" from="PanelContainer/VBoxContainer/Open/CheckBox" to="." method="_on_open_toggled"]
 [connection signal="pressed" from="PanelContainer/VBoxContainer/Done" to="." method="_on_done_pressed"]
 [connection signal="pressed" from="PanelContainer/VBoxContainer/Back" to="." method="_on_back_pressed"]

@@ -10,9 +10,11 @@ signal authentication_failed()
 const MIN_PORT = 1
 const MAX_PORT = 49151
 const DEFAULT_PORT = 42069
+const MAX_PLAYERS = 4095
 
 var peer: NetworkedMultiplayerENet
 var _login_data: LoginData
+var _server_data: ServerData
 
 
 func _ready():
@@ -24,10 +26,13 @@ func _ready():
 	return
 
 
-func host_game(port: int, max_clients: int) -> int:
+func host_game(server_data: ServerData) -> int:
+	_server_data = server_data
+	var port = _server_data.get_value(ServerData.DETAILS_SECTION, ServerData.PORT_KEY)
+	var max_players = _server_data.get_value(ServerData.PLAYER_SECTION, ServerData.MAX_PLAYERS_KEY)
 	print("Hosting server at port: %d" % port)
 	peer = NetworkedMultiplayerENet.new()
-	var status = peer.create_server(port, max_clients)
+	var status = peer.create_server(port, max_players)
 	print("Hosting server status: %d" % status)
 	if status != OK:
 		return status

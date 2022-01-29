@@ -74,6 +74,8 @@ margin_right = 141.0
 margin_bottom = 99.0
 text = "Back"
 
+[connection signal="item_selected" from="PanelContainer/VBoxContainer/Servers" to="." method="_on_server_selected"]
 [connection signal="pressed" from="PanelContainer/VBoxContainer/Add" to="." method="_on_add_pressed"]
 [connection signal="pressed" from="PanelContainer/VBoxContainer/HBoxContainer/Host" to="." method="_on_host_pressed"]
+[connection signal="pressed" from="PanelContainer/VBoxContainer/HBoxContainer/Edit" to="." method="_on_edit_pressed"]
 [connection signal="pressed" from="PanelContainer/VBoxContainer/Back" to="." method="_on_Back_pressed"]

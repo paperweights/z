@@ -110,3 +110,4 @@ margin_bottom = 55.0
 [connection signal="edit_server" from="JoinMenu" to="ServerInfoMenu" method="_on_edit_server"]
 [connection signal="joining_server" from="JoinMenu" to="JoiningMenu" method="_on_joining_server"]
 [connection signal="server_added" from="ServerInfoMenu" to="JoinMenu" method="_on_server_added"]
+[connection signal="edit_host" from="HostMenu" to="HostEditMenu" method="_on_edit_host"]

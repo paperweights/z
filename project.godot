@@ -55,6 +55,11 @@ _global_script_classes=[ {
 "path": "res://menu/menu.gd"
 }, {
 "base": "ValidLine",
+"class": "NumberLine",
+"language": "GDScript",
+"path": "res://menu/line_edits/number_line.gd"
+}, {
+"base": "NumberLine",
 "class": "PortLine",
 "language": "GDScript",
 "path": "res://menu/line_edits/port_line.gd"
@@ -84,6 +89,7 @@ _global_script_class_icons={
 "LoginData": "",
 "MainMenu": "",
 "Menu": "",
+"NumberLine": "",
 "PortLine": "",
 "ServerData": "",
 "ServerInfoMenu": "",
