@@ -27,7 +27,7 @@ func _toggle_buttons(cancel: bool):
 
 func _on_connected_successfully():
 	# close menu once connected
-	_switch_menu(null)
+	visible = false
 	return
 
 

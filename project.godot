@@ -39,11 +39,6 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://menu/joining_menu.gd"
 }, {
-"base": "Reference",
-"class": "LoginData",
-"language": "GDScript",
-"path": "res://network/login_data.gd"
-}, {
 "base": "Menu",
 "class": "MainMenu",
 "language": "GDScript",
@@ -58,6 +53,11 @@ _global_script_classes=[ {
 "class": "NumberLine",
 "language": "GDScript",
 "path": "res://menu/line_edits/number_line.gd"
+}, {
+"base": "Reference",
+"class": "PlayerData",
+"language": "GDScript",
+"path": "res://network/player_data.gd"
 }, {
 "base": "NumberLine",
 "class": "PortLine",
@@ -86,10 +86,10 @@ _global_script_class_icons={
 "IpAddressLine": "",
 "JoinMenu": "",
 "JoiningMenu": "",
-"LoginData": "",
 "MainMenu": "",
 "Menu": "",
 "NumberLine": "",
+"PlayerData": "",
 "PortLine": "",
 "ServerData": "",
 "ServerInfoMenu": "",
