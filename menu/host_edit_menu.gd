@@ -2,6 +2,7 @@ extends Menu
 
 export (NodePath) var _host_menu_node
 
+# used for moving the the old folder when editing name
 var _edit_server: String
 
 var _name: String
