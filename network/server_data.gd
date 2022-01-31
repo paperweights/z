@@ -57,7 +57,7 @@ static func get_player_data_path(server_path: String) -> String:
 
 
 func get_server_password() -> String:
-	return str(_server_config.get_value(DETAILS_SECTION, PASSWORD_KEY)).sha256_text()
+	return _server_config.get_value(DETAILS_SECTION, PASSWORD_KEY)
 
 
 func get_port() -> int:
@@ -66,6 +66,10 @@ func get_port() -> int:
 
 func get_max_players() -> int:
 	return _server_config.get_value(PLAYER_SECTION, MAX_PLAYERS_KEY)
+
+
+func is_open() -> bool:
+	return _server_config.get_value(DETAILS_SECTION, OPEN_KEY)
 
 
 func create(name: String) -> bool:

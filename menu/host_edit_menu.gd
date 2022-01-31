@@ -89,8 +89,8 @@ func _on_edit_host(server: String):
 	var server_data = ServerData.new()
 	server_data.load_data(server)
 	_name = server
-	_port = server_data.get_value(ServerData.DETAILS_SECTION, ServerData.PORT_KEY)
-	_password = server_data.get_value(ServerData.DETAILS_SECTION, ServerData.PASSWORD_KEY)
-	_max_players = server_data.get_value(ServerData.PLAYER_SECTION, ServerData.MAX_PLAYERS_KEY)
-	_open = server_data.get_value(ServerData.PLAYER_SECTION, ServerData.OPEN_KEY)
+	_port = server_data.get_port()
+	_password = server_data.get_server_password()
+	_max_players = server_data.get_max_players()
+	_open = server_data.is_open()
 	_update_inputs()

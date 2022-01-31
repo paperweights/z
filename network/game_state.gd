@@ -103,7 +103,7 @@ remote func login_request(server_password: String, username: String,
 	var result = true
 	# validate login data
 	# make sure server password matches
-	if server_password != _server_data.get_server_password():
+	if server_password != _server_data.get_server_password().sha256_text():
 		print("Server password is incorrect!")
 		result = false
 	# check if player exists
