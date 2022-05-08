@@ -2,12 +2,12 @@
 
 importer="scene"
 type="PackedScene"
-path="res://.import/baseball_bat.glb-e431135e36972e70b5c86a7a2208f7fa.scn"
+path="res://.import/baseball_bat.glb-acd3d9534f929f5fac6fadb6e71ae57f.scn"
 
 [deps]
 
-source_file="res://bat/baseball_bat.glb"
-dest_files=[ "res://.import/baseball_bat.glb-e431135e36972e70b5c86a7a2208f7fa.scn" ]
+source_file="res://weapons/bat/baseball_bat.glb"
+dest_files=[ "res://.import/baseball_bat.glb-acd3d9534f929f5fac6fadb6e71ae57f.scn" ]
 
 [params]
 

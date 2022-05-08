@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/baseball_bat.png-41a3e8fd16846392f1f46de0b16ef492.stex"
+path="res://.import/vp9.png-69beb3472ccc9bcb821b61f50e0f3bee.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://bat/baseball_bat.png"
-dest_files=[ "res://.import/baseball_bat.png-41a3e8fd16846392f1f46de0b16ef492.stex" ]
+source_file="res://weapons/vp9/vp9.png"
+dest_files=[ "res://.import/vp9.png-69beb3472ccc9bcb821b61f50e0f3bee.stex" ]
 
 [params]
 

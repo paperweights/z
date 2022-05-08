@@ -2,3 +2,4 @@
 
 [resource]
 background_mode = 1
+fog_enabled = true
