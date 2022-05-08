@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://bat/baseball_bat.tscn" type="PackedScene" id=1]
+[ext_resource path="res://world/environment.tres" type="Environment" id=2]
+
+[node name="World" type="Spatial"]
+
+[node name="baseball_bat" parent="." instance=ExtResource( 1 )]
+transform = Transform( 0.00110238, -0.999999, -0.000685811, 0.999999, 0.00110197, 0.000602518, -0.00060177, -0.000686468, 1, 0.000738233, 0, 0.00097543 )
+
+[node name="DirectionalLight" type="DirectionalLight" parent="."]
+transform = Transform( 0.999999, 0.000514098, -0.00153641, 0.00117972, 0.418922, 0.908021, 0.00111045, -0.908022, 0.418921, 0, 0, 0 )
+
+[node name="Camera" type="Camera" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00914228, -0.0099147, 0.717136 )
+environment = ExtResource( 2 )
+current = true
