@@ -1,6 +1,6 @@
 extends Camera
 
-export(float) var _speed = 2.0
+export(float) var _speed = 3.0
 
 var _mouse_offset: Vector2
 var _active: bool
