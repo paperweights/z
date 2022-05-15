@@ -5,6 +5,8 @@ const CS1 = CHUNK_SIZE + 1
 const TILE_SIZE: float = 2.0
 const MATERIAL = preload("res://floor/floor2.material")
 
+export(float) var _collision_margin = .15
+
 onready var _mesh = $Mesh
 onready var _collision = $CollisionShape
 
@@ -66,6 +68,7 @@ func _generate_collisions(data: PoolRealArray) -> void:
 	height_map_shape.map_width = CS1
 	height_map_shape.map_depth = CS1
 	height_map_shape.map_data = data
+	height_map_shape.margin = _collision_margin
 	_collision.shape = height_map_shape
 	return
 
