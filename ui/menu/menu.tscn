@@ -1,13 +1,13 @@
 [gd_scene load_steps=9 format=2]
 
-[ext_resource path="res://menu/main_menu.tscn" type="PackedScene" id=1]
-[ext_resource path="res://menu/join_menu.tscn" type="PackedScene" id=2]
-[ext_resource path="res://menu/server_info_menu.tscn" type="PackedScene" id=3]
-[ext_resource path="res://menu/host_menu.tscn" type="PackedScene" id=4]
-[ext_resource path="res://menu/options_menu.tscn" type="PackedScene" id=5]
-[ext_resource path="res://menu/joining_menu.tscn" type="PackedScene" id=6]
-[ext_resource path="res://menu/hosting_menu.tscn" type="PackedScene" id=7]
-[ext_resource path="res://menu/host_edit_menu.tscn" type="PackedScene" id=8]
+[ext_resource path="res://ui/menu/main_menu.tscn" type="PackedScene" id=1]
+[ext_resource path="res://ui/menu/join_menu.tscn" type="PackedScene" id=2]
+[ext_resource path="res://ui/menu/server_info_menu.tscn" type="PackedScene" id=3]
+[ext_resource path="res://ui/menu/host_menu.tscn" type="PackedScene" id=4]
+[ext_resource path="res://ui/menu/options_menu.tscn" type="PackedScene" id=5]
+[ext_resource path="res://ui/menu/joining_menu.tscn" type="PackedScene" id=6]
+[ext_resource path="res://ui/menu/hosting_menu.tscn" type="PackedScene" id=7]
+[ext_resource path="res://ui/menu/host_edit_menu.tscn" type="PackedScene" id=8]
 
 [node name="Menu" type="Control"]
 anchor_right = 1.0
