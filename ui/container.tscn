@@ -1,0 +1,129 @@
+[gd_scene load_steps=3 format=2]
+
+[sub_resource type="OpenSimplexNoise" id=2]
+octaves = 9
+period = 2.2
+
+[sub_resource type="NoiseTexture" id=1]
+width = 32
+height = 32
+seamless = true
+noise = SubResource( 2 )
+
+[node name="Container" type="PanelContainer"]
+margin_left = 405.0
+margin_top = 234.0
+margin_right = 619.0
+margin_bottom = 366.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 321.0
+margin_bottom = 139.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+margin_right = 314.0
+margin_bottom = 14.0
+
+[node name="Title" type="Label" parent="VBoxContainer/HBoxContainer"]
+margin_right = 155.0
+margin_bottom = 14.0
+size_flags_horizontal = 3
+text = "Container"
+
+[node name="Capacity" type="Label" parent="VBoxContainer/HBoxContainer"]
+margin_left = 159.0
+margin_right = 314.0
+margin_bottom = 14.0
+size_flags_horizontal = 3
+text = "0/99"
+align = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="VBoxContainer"]
+margin_top = 18.0
+margin_right = 314.0
+margin_bottom = 132.0
+
+[node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer/PanelContainer"]
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 307.0
+margin_bottom = 107.0
+rect_min_size = Vector2( 300, 100 )
+scroll_horizontal_enabled = false
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/PanelContainer/ScrollContainer"]
+margin_right = 300.0
+margin_bottom = 50.0
+size_flags_horizontal = 3
+
+[node name="Heading" type="HBoxContainer" parent="VBoxContainer/PanelContainer/ScrollContainer/VBoxContainer"]
+margin_right = 300.0
+margin_bottom = 14.0
+custom_constants/separation = 10
+
+[node name="Icon" type="Label" parent="VBoxContainer/PanelContainer/ScrollContainer/VBoxContainer/Heading"]
+margin_right = 32.0
+margin_bottom = 14.0
+rect_min_size = Vector2( 32, 0 )
+text = "Icon"
+
+[node name="Item" type="Label" parent="VBoxContainer/PanelContainer/ScrollContainer/VBoxContainer/Heading"]
+margin_left = 42.0
+margin_right = 121.0
+margin_bottom = 14.0
+size_flags_horizontal = 3
+text = "Item"
+
+[node name="Category" type="Label" parent="VBoxContainer/PanelContainer/ScrollContainer/VBoxContainer/Heading"]
+margin_left = 131.0
+margin_right = 210.0
+margin_bottom = 14.0
+size_flags_horizontal = 3
+text = "Category"
+
+[node name="Weight" type="Label" parent="VBoxContainer/PanelContainer/ScrollContainer/VBoxContainer/Heading"]
+margin_left = 220.0
+margin_right = 300.0
+margin_bottom = 14.0
+size_flags_horizontal = 3
+text = "Weight"
+
+[node name="Entry" type="HBoxContainer" parent="VBoxContainer/PanelContainer/ScrollContainer/VBoxContainer"]
+margin_top = 18.0
+margin_right = 300.0
+margin_bottom = 50.0
+custom_constants/separation = 10
+
+[node name="Icon" type="TextureRect" parent="VBoxContainer/PanelContainer/ScrollContainer/VBoxContainer/Entry"]
+margin_right = 32.0
+margin_bottom = 32.0
+rect_min_size = Vector2( 32, 32 )
+texture = SubResource( 1 )
+
+[node name="Name" type="Label" parent="VBoxContainer/PanelContainer/ScrollContainer/VBoxContainer/Entry"]
+margin_left = 42.0
+margin_top = 9.0
+margin_right = 121.0
+margin_bottom = 23.0
+size_flags_horizontal = 3
+text = "Baseball batasdfasdf"
+clip_text = true
+
+[node name="Category" type="Label" parent="VBoxContainer/PanelContainer/ScrollContainer/VBoxContainer/Entry"]
+modulate = Color( 0.08, 0.32, 0.8, 1 )
+margin_left = 131.0
+margin_top = 9.0
+margin_right = 210.0
+margin_bottom = 23.0
+size_flags_horizontal = 3
+text = "Weapon"
+
+[node name="Weight" type="Label" parent="VBoxContainer/PanelContainer/ScrollContainer/VBoxContainer/Entry"]
+margin_left = 220.0
+margin_top = 9.0
+margin_right = 300.0
+margin_bottom = 23.0
+size_flags_horizontal = 3
+text = "0.3"
